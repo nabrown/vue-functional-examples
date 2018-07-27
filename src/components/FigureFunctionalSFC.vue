@@ -13,6 +13,19 @@
 <script>
   export default {
     name: 'FigureFunctionalSFC',
-    props: ['type', 'src', 'tags']
-  };
+    props: {
+      src: {
+        required: true,
+        type: String
+      },
+      type: {
+        required: true,
+        type: String
+      },
+      tags: {
+        required: false,
+        type: Array
+      }
+    }
+  }
 </script>

@@ -1,6 +1,19 @@
 export default {
   functional: true,
-  props: [ 'type', 'src', 'tags' ],
+  props: {
+    src: {
+      required: true,
+      type: String
+    },
+    type: {
+      required: true,
+      type: String
+    },
+    tags: {
+      required: false,
+      type: Array
+    }
+  },
   render(createElement, {props, listeners, slots}){
 
     const img = createElement(
