@@ -1,13 +1,18 @@
 <template>
   <figure :class="type" v-on:click="$emit('click')">
     <img :src="src" />
-    <figcaption v-if="$slots.default"><slot></slot></figcaption>
+    <figcaption v-if="$slots.default">
+      <slot></slot>
+    </figcaption>
+    <div class="tags" v-if="tags">
+      <span v-for="tag in tags"> {{ tag }}</span>
+    </div>
   </figure>
 </template>
 
 <script>
   export default {
     name: 'FigureStandardSFC',
-    props: ['type', 'src']
+    props: ['type', 'src', 'tags']
   };
 </script>

@@ -1,6 +1,6 @@
 export default {
 
-  props: [ 'type', 'src' ],
+  props: [ 'type', 'src', 'tags' ],
   render(createElement){
 
     const img = createElement(
@@ -16,6 +16,14 @@ export default {
       'figcaption',
       this.$slots.default
     ) : ''
+
+    const tags = this.tags ? createElement(
+      'div',
+      {'class' : 'tags'},
+      this.tags.map(function (tag) {
+        return createElement('span', tag)
+      })
+    ) : ''
     
     return createElement(
       'figure', 
@@ -27,7 +35,7 @@ export default {
           }
         }
       },
-      [img, caption]
+      [img, caption, tags]
     )
   }
 }

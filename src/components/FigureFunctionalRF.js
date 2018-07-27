@@ -1,6 +1,6 @@
 export default {
   functional: true,
-  props: [ 'type', 'src' ],
+  props: [ 'type', 'src', 'tags' ],
   render(createElement, {props, listeners, slots}){
 
     const img = createElement(
@@ -17,6 +17,14 @@ export default {
       slots().default
     ) : ''
 
+    const tags = props.tags ? createElement(
+      'div',
+      {'class' : 'tags'},
+      props.tags.map(function (tag) {
+        return createElement('span', tag)
+      })
+    ) : ''
+
     return createElement( 
       'figure', 
       {
@@ -25,7 +33,7 @@ export default {
           'click': listeners.click
         }
       },
-      [img, caption]
+      [img, caption, tags]
     )
   }
 }
