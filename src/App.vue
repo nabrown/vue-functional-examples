@@ -1,9 +1,30 @@
 <template>
   <div id="app">
-    <FigureStandardSFC src="cat-basking.jpg" type="modern" @click="alertThing">Cat basking in the sun.</FigureStandardSFC>
-    <FigureStandardRF src="red-tailed-hawk.jpg" type="modern" @click="alertThing" >Red-tailed hawk.</FigureStandardRF>
-    <FigureFunctionalRF src="orange-blue-abstract.jpg" type="eighties" @click="alertThing"><span>Orange circle</span><br><span>blue square.</span></FigureFunctionalRF>
-    <FigureFunctionalSFC  src="bloodroot-leaf.jpg" type="post-it" @click="alertThing">Bloodroot leaf.</FigureFunctionalSFC>
+    <FigureStandardSFC
+      src="cat-basking.jpg"
+      type="modern"
+      :tags="['cat','feline','fuzzy','gray']"
+      @click="alertHello">Cat basking in the sun.</FigureStandardSFC>
+
+    <FigureStandardRF
+      src="red-tailed-hawk.jpg"
+      type="modern"
+      :tags="['bird','hawk','raptor']"
+      @click="alertHello" >Red-tailed hawk.</FigureStandardRF>
+
+    <FigureFunctionalRF
+      src="orange-blue-abstract.jpg"
+      type="eighties"
+      :tags="['orange','blue','abstract', 'metal']"
+      @click="alertGoodbye">
+        <span>Orange circle</span><br><span>blue square.</span>
+      </FigureFunctionalRF>
+
+    <FigureFunctionalSFC 
+      src="bloodroot-leaf.jpg" 
+      type="modern" 
+      :tags="['leaf','plant','forest','green']"
+      @click="alertGoodbye">Bloodroot leaf.</FigureFunctionalSFC>
   </div>
 </template>
 
@@ -22,8 +43,11 @@ export default {
     FigureFunctionalRF
   },
   methods: {
-    alertThing(){
-      alert('thing')
+    alertHello(){
+      alert("HELLO!")
+    },
+    alertGoodbye(){
+      alert("Bye.")
     }
   }
 };
@@ -39,13 +63,29 @@ export default {
   font-size: 1.2em;
   grid-gap: 2em;
 }
-figure{
+figure {
   position: relative;
   margin: 0;
   padding: 0;
 }
-figcaption{
+img {
+  max-width: 100%;
+  display: block;
+}
+figcaption {
   position: absolute;
+}
+.tags {
+  position: absolute;
+  top: .2em;
+  right: .2em;
+  font-size: smaller;
+  color: #FFF;
+}
+.tags span{
+  background: rgbs(255,255,255,.3);
+  padding: .1em .3em;
+  margin-left: .3em;
 }
 .modern {
   font-family: HelveticaNeue, sans-serif;
@@ -87,8 +127,5 @@ figcaption{
   color: #FFF;
   padding: 0 .5em;
 }
-img{
-  max-width: 100%;
-  display: block;
-}
+
 </style>
