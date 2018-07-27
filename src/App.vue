@@ -22,9 +22,9 @@
 
     <FigureFunctionalSFC 
       src="bloodroot-leaf.jpg" 
-      type="modern" 
+      type="framed" 
       :tags="['leaf','plant','forest','green']"
-      @click="alertGoodbye">Bloodroot leaf.</FigureFunctionalSFC>
+      @click="alertGoodbye"><span>Bloodroot leaf.</span></FigureFunctionalSFC>
   </div>
 </template>
 
@@ -57,7 +57,6 @@ export default {
   body {
     font-family: HelveticaNeue, sans-serif;
   }
-
   * {
     box-sizing: border-box;
   }
@@ -65,7 +64,8 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-size: 1.2em;
-    grid-gap: 2em;
+    grid-gap: 4vw;
+    margin: 4vw;
   }
   figure {
     position: relative;
@@ -121,7 +121,7 @@ export default {
     top: 60%;
     left: -10px;
     font-size: 2em;
-    font-family: impact;
+    font-family: "Impact", sans-serif;
     transform: skew(-13deg);
     text-indent: .5em;
   }
@@ -129,5 +129,27 @@ export default {
     background: #4276c7;
     color: #FFF;
     padding: 0 .5em;
+  }
+  .framed img{
+    border: 67px solid #dcdbcb;
+    border-image: url("/img/frame.jpg") 67 round round;
+  }
+  .framed figcaption {
+    bottom: 38px;
+    width: 100%;
+    text-align: center;
+    font-size: smaller;
+  }
+  .framed figcaption span {
+    background: linear-gradient(to right, #b9a704e3, #d6cc7d, #b9a704e3);
+    padding: .2em 0;
+    border-radius: 0.7em;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  .framed figcaption span:before,
+  .framed figcaption span:after {
+    content: "•";
+    margin: 0 1em;
+    color: #a29422;
   }
 </style>
