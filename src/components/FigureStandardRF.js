@@ -27,10 +27,10 @@ export default {
 
     const caption = this.$slots.default ? createElement(
       'figcaption',
-      this.$slots.default
+      [ createElement('span', this.$slots.default) ]
     ) : ''
 
-    const tags = this.tags ? createElement(
+    const tags = this.tags && (this.type != 'framed') ? createElement(
       'div',
       {'class' : 'tags'},
       this.tags.map(function (tag) {

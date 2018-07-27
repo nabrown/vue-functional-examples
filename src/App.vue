@@ -2,29 +2,29 @@
   <div id="app">
     <FigureStandardSFC
       src="cat-basking.jpg"
-      type="modern"
+      type="post-it"
       :tags="['cat','feline','fuzzy','gray']"
       @click="alertHello">Cat basking in the sun.</FigureStandardSFC>
 
     <FigureStandardRF
       src="red-tailed-hawk.jpg"
-      type="post-it"
+      type="modern"
       :tags="['bird','hawk','raptor']"
-      @click="alertHello" >Red-tailed hawk.</FigureStandardRF>
+      @click="alertHello">Red-tailed hawk.</FigureStandardRF>
 
     <FigureFunctionalRF
       src="orange-blue-abstract.jpg"
       type="eighties"
       :tags="['orange','blue','abstract', 'metal']"
       @click="alertGoodbye">
-        <span>Orange circle</span><br><span>blue square.</span>
+        Orange circle, blue square.
       </FigureFunctionalRF>
 
     <FigureFunctionalSFC 
       src="bloodroot-leaf.jpg" 
       type="framed" 
       :tags="['leaf','plant','forest','green']"
-      @click="alertGoodbye"><span>Bloodroot leaf.</span></FigureFunctionalSFC>
+      @click="alertGoodbye">Bloodroot leaf.</FigureFunctionalSFC>
   </div>
 </template>
 
@@ -118,8 +118,8 @@ export default {
     transform: rotate(-7deg);
   }
   .eighties figcaption {
-    top: 60%;
-    left: -10px;
+    top: 80%;
+    left: -30px;
     font-size: 2em;
     font-family: "Impact", sans-serif;
     transform: skew(-13deg);

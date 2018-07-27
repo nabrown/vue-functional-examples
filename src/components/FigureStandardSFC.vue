@@ -2,9 +2,9 @@
   <figure :class="type" v-on:click="$emit('click')">
     <img :src="src" />
     <figcaption v-if="$slots.default">
-      <slot></slot>
+      <span><slot></slot></span>
     </figcaption>
-    <div class="tags" v-if="tags">
+    <div class="tags" v-if="tags && type != 'framed'">
       <span v-for="tag in tags"> {{ tag }}</span>
     </div>
   </figure>

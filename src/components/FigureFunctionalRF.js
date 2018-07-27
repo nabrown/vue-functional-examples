@@ -27,10 +27,10 @@ export default {
 
     const caption = slots().default ? createElement(
       'figcaption',
-      slots().default
+      [ createElement('span', slots().default) ]
     ) : ''
 
-    const tags = props.tags ? createElement(
+    const tags = props.tags && (props.type != 'framed') ? createElement(
       'div',
       {'class' : 'tags'},
       props.tags.map(function (tag) {
